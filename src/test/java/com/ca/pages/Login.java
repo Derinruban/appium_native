@@ -19,7 +19,6 @@ public class Login extends RunTest{
     @FindBy(id = "loginButton")
     public WebElement Login_button;
 
-
     public Login(){
         PageFactory.initElements(driver, this);
     }

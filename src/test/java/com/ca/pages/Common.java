@@ -12,12 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Common extends RunTest{
 
-    @FindBy(id = "lst-ib")
-    public WebElement Search_field;
-
-    @FindBy(name = "x")
-    public WebElement Header;
-
+    @FindBy(css = ".component-icons")
+    public WebElement Icons;
 
     public Common(){
         PageFactory.initElements(driver, this);

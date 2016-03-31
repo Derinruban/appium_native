@@ -27,8 +27,9 @@ public class RunTest {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-//    Page Objects
+//    Pages
     public static Common common;
+    public static Login login;
 
 
     @BeforeClass
@@ -36,8 +37,9 @@ public class RunTest {
         driver = Drivers.getDriver();
         wait = new WebDriverWait(driver, 15);
 
-//        Page Object instances
+//     Page Object instances
         common = new Common();
+        login = new Login();
     }
 
     @AfterClass
