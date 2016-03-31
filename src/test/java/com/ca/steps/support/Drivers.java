@@ -1,4 +1,4 @@
-package com.payments.drivers;
+package com.ca.steps.support;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -10,30 +10,22 @@ import org.openqa.selenium.safari.SafariDriver;
 
 
 /**
- * Created by Derin on 26/1/16.
+ * Created by Derin on 26/3/16.
  */
 public class Drivers {
 
-    public static WebDriver driver;
-    public static String browser = null;
-    public static String build = null;
+    private static WebDriver driver;
+    private static String browser = null;
 
 
     public static String getBrowser() {
         browser = System.getProperty("browser");
         return browser;
     }
-
-    public static String getBuild() {
-        build = System.getProperty("env");
-        return build;
-    }
     
 
     public static WebDriver getDriver() throws IOException {
-
         getBrowser();
-        getBuild();
 
 //		browser is set at command line
         if (browser.equals("firefox")) {
@@ -45,7 +37,7 @@ public class Drivers {
         } else {
             driver = new ChromeDriver();
         }
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver;
     }
 

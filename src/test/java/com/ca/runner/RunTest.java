@@ -1,7 +1,7 @@
-package com.payments.runner;
+package com.ca.runner;
 
-import com.payments.drivers.Drivers;
-import com.payments.pages.*;
+import com.ca.steps.support.Drivers;
+import com.ca.pages.*;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Created by Derin on 26/1/16.
+ * Created by Derin on 26/3/16.
  */
 
 @RunWith(Cucumber.class)
@@ -20,23 +20,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
         features={"src/test/resources/features"},
         monochrome = true,
         tags={"@derin"},
-        glue = {"com.payments.steps"}
+        glue = {"com.ca.steps"}
 )
 
 public class RunTest {
     public static WebDriver driver;
-    public static String build;
     public static WebDriverWait wait;
 
+//    Page Objects
     public static Common common;
 
 
     @BeforeClass
     public static void setUp() throws Exception {
         driver = Drivers.getDriver();
-        build = Drivers.getBuild();
         wait = new WebDriverWait(driver, 45);
 
+//        Page Object instances
         common = new Common();
     }
 

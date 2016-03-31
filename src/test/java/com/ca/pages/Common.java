@@ -1,8 +1,6 @@
-package com.payments.pages;
+package com.ca.pages;
 
-import com.payments.runner.RunTest;
-import io.appium.java_client.MobileElement;
-import org.openqa.selenium.NoSuchElementException;
+import com.ca.runner.RunTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
