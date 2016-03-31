@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * Created by Derin on 30/11/15.
+ * Created by Derin on 30/03/16.
  */
 public class HomeSteps extends RunTest {
 
@@ -14,7 +14,14 @@ public class HomeSteps extends RunTest {
         driver.get("http://google.com");
         wait.until(ExpectedConditions.visibilityOf(common.Search_field));
         common.Search_field.sendKeys("Travelex");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
     }
+
+    @Given("^I am logged in$")
+    public void i_am_logged_in() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+
+    }
+
 
 }

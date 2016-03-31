@@ -2,4 +2,4 @@
 Feature: Example
 
 Scenario: Test Case
-    Given I am on home screen
+    Given I am logged in

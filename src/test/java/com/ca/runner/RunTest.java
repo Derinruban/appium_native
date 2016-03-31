@@ -34,7 +34,7 @@ public class RunTest {
     @BeforeClass
     public static void setUp() throws Exception {
         driver = Drivers.getDriver();
-        wait = new WebDriverWait(driver, 45);
+        wait = new WebDriverWait(driver, 15);
 
 //        Page Object instances
         common = new Common();

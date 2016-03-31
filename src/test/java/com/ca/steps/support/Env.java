@@ -37,16 +37,10 @@ public class Env extends RunTest{
 
     @After
     public void afterTest(Scenario scenario) throws Exception {
-
-        try {
             if (scenario.isFailed()) {
                 final byte[] screenshot = ((TakesScreenshot) driver)
                         .getScreenshotAs(OutputType.BYTES);
                 scenario.embed(screenshot, "image/png");
             }
-        } finally {
-
-        }
-
     }
 }
