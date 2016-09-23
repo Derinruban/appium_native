@@ -1,6 +1,7 @@
 package com.ca.steps;
 
 import com.ca.runner.RunTest;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,35 +24,28 @@ public class HomeSteps extends RunTest {
     }
 
     @Given("^I can Loop$")
-    public void i_can_Loop() throws Throwable {
+    public void i_can_Loop(DataTable table) throws Throwable {
+        for (Map<String, String> map : table.asMaps(String.class, String.class)) {
+            String attribute = map.get("attributes");
+            String word = map.get("words");
+
+            System.out.println(attribute + word);
+        }
+    }
+
+    @Given("^I can Switch$")
+    public void i_can_Switch(DataTable table) throws Throwable {
         for (Map<String, String> map : table.asMaps(String.class, String.class)) {
             String attribute = map.get("attributes");
 
-//                switch (attribute) {
-//                    case "Country Name":
-//                        if (platform.equals("iOS")) {
-//                            Assert.assertEquals(count, driver.findElementsById("x").size());
-//                        } else {
-//                            Assert.assertTrue(count <= driver.findElementsById("text_country_name").size());
-//                        }
-//
-//                    case "Currency Name":
-//                        if (platform.equals("iOS")) {
-//                            Assert.assertEquals(count, driver.findElementsById("x").size());
-//                        } else {
-//                            Assert.assertEquals(count, driver.findElementsById("text_currency_name").size());
-//                        }
-//
-//                    case "Rate":
-//                        if (platform.equals("iOS")) {
-//                            Assert.assertEquals(count, driver.findElementsById("x").size());
-//                        } else {
-//                            Assert.assertEquals(count, driver.findElementsById("text_rate").size());
-//                        }
-//
-//                }
-            System.out.println(attribute);
-
+                switch (attribute) {
+                    case "Monday":
+                        System.out.println("What a bore");
+                    case "Tueday":
+                        System.out.println("What a drag");
+                    case "Wednesday":
+                        System.out.println("Almost done");
+                }
         }
     }
 

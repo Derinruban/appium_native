@@ -19,7 +19,7 @@ public class Env extends RunTest{
     public static String getBuild() {
         build = System.getProperty("env");
         if (build.equals("qa")) {
-            url = "https://ca-qa.ats.itv.com/";
+            url = "http://google.com/";
         } else if (build.equals("uat")) {
             url = "https://ca-uat.ats.itv.com/";
         } else {
