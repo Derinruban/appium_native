@@ -5,6 +5,8 @@ import cucumber.api.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Map;
+
 /**
  * Created by Derin on 30/03/16.
  */
@@ -19,6 +21,40 @@ public class HomeSteps extends RunTest {
         Thread.sleep(2000);
 
     }
+
+    @Given("^I can Loop$")
+    public void i_can_Loop() throws Throwable {
+        for (Map<String, String> map : table.asMaps(String.class, String.class)) {
+            String attribute = map.get("attributes");
+
+//                switch (attribute) {
+//                    case "Country Name":
+//                        if (platform.equals("iOS")) {
+//                            Assert.assertEquals(count, driver.findElementsById("x").size());
+//                        } else {
+//                            Assert.assertTrue(count <= driver.findElementsById("text_country_name").size());
+//                        }
+//
+//                    case "Currency Name":
+//                        if (platform.equals("iOS")) {
+//                            Assert.assertEquals(count, driver.findElementsById("x").size());
+//                        } else {
+//                            Assert.assertEquals(count, driver.findElementsById("text_currency_name").size());
+//                        }
+//
+//                    case "Rate":
+//                        if (platform.equals("iOS")) {
+//                            Assert.assertEquals(count, driver.findElementsById("x").size());
+//                        } else {
+//                            Assert.assertEquals(count, driver.findElementsById("text_rate").size());
+//                        }
+//
+//                }
+            System.out.println(attribute);
+
+        }
+    }
+
 
 
 }
