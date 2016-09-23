@@ -1,4 +1,4 @@
-package com.payments.steps.support;
+package com.payments.steps;
 
 import com.payments.runner.RunTest;
 import cucumber.api.DataTable;
