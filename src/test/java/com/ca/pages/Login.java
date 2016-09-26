@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by deriruba on 3/31/16.
  */
-public class Login extends RunTest{
+public class Login extends RunTest {
 
     @FindBy(id = "username")
     public WebElement Username;

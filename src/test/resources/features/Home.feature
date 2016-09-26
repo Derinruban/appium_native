@@ -12,10 +12,18 @@ Scenario: Loop Test
     |Is        |We   |
     |King      |Here |
 
-@derin
+
 Scenario: Switch test
     Given I can Switch
     |attributes|
     |Monday    |
     |Tuesday   |
     |Wednesday |
+
+
+Scenario: Hover test
+    Given I can hover
+
+@derin
+Scenario: Select test
+    Given I can select

@@ -4,7 +4,9 @@ import com.ca.runner.RunTest;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.Map;
 
@@ -49,6 +51,22 @@ public class HomeSteps extends RunTest {
         }
     }
 
+    @Given("^I can hover$")
+    public void i_can_hover() throws Throwable {
+       driver.get("https://www.amazon.co.uk/");
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("nav-link-yourAccount"))));
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.id("nav-link-yourAccount"))).build().perform();
+        Thread.sleep(5000);
+    }
 
+    @Given("^I can select$")
+    public void i_can_select() throws Throwable {
+        driver.get("https://www.amazon.co.uk/");
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("searchDropdownBox")));
+        Select select = new Select(driver.findElement(By.id("searchDropdownBox")));
+        select.selectByVisibleText("Baby");
+        Thread.sleep(5000);
+    }
 
 }

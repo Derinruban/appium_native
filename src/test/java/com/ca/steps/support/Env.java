@@ -11,7 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
  * Created by Derin on 15/03/16.
  */
 
-public class Env extends RunTest{
+public class Env extends RunTest {
     private static String build;
     private static String url;
 

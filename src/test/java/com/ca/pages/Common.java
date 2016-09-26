@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * edited by Derin on 26/1/16.
  */
 
-public class Common extends RunTest{
+public class Common extends RunTest {
 
     @FindBy(css = ".component-icons")
     public WebElement Icons;
