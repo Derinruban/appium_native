@@ -3,6 +3,7 @@ package com.ca.steps;
 import com.ca.runner.RunTest;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,5 +69,21 @@ public class HomeSteps extends RunTest {
         select.selectByVisibleText("Baby");
         Thread.sleep(5000);
     }
+
+    @When("^I use while option$")
+    public void i_select_the_transfer_button() throws Throwable {
+
+        int count = 0;
+
+        while (count <7) {
+            if (driver.findElements(By.xpath("//*[contains(@text, 'Ihr Flug')]")).size()>0) {
+                driver.findElement(By.xpath("//*[contains(@text, 'Ihr Flug')]")).click();
+                break;
+            } else {
+                count++;
+            }
+        }
+    }
+
 
 }
