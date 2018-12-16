@@ -1,6 +1,10 @@
 package com.ca.steps.support;
 
 
+import com.sun.istack.internal.NotNull;
+
+import java.util.Optional;
+
 /**
  * Text blob generator takes an instruction string
  *
@@ -35,82 +39,50 @@ package com.ca.steps.support;
  */
 public class TextBlobGenerator {
 
-	private String[] letters = {"a","b","c","d","e","f"};
+	private String textBlobGenerator(String textPattern) {
 
+		String[] letters = {"a","b","c","d","e","f"};
+		String[] args = textPattern.split(":");
+		String blob = "";
 
-	private final int addLettersFor;
-	private int padLeftFor;
-	private String padRightFor;
+        int addLettersFor = Integer.parseInt(args[0]);
+		int padLeftFor = Integer.parseInt(args[1]);
+		int padRightFor = Integer.parseInt(args[2]);
+        String paddingStyle = args[3];
 
-	protected final String paddingStyle;
+        int i = 0;
+        int letterNumber = 0;
 
-	private final String blob;
-
-	public TextBlobGenerator(DataWrapper dataWrapper) {
-
-		String instructions = dataWrapper.getInstruction();
-
-		addLettersFor = Integer.parseInt(instructions.split(",")[0]);
-		padLeftFor = Integer.parseInt(instructions.split(",")[1]);
-		padRightFor = instructions.split(",")[2];
-
-		if(paddingStyle=="left")
-		{
-			String blob = "";
-
-			int i=0;
-			for(; i<addLettersFor; i++){
-				blob=letters[i] + blob;
+        while (i < addLettersFor) {
+        	blob = blob + letters[letterNumber];
+			i++;
+			letterNumber++;
+			if (letterNumber >= letters.length){
+				letterNumber = 0;
 			}
+        }
 
-			for(; i<padRightFor; i++);
-				blob = "" + blob;
-
+		if(paddingStyle.equals("left"))
+		{
+			for(int pad = 0; pad < padLeftFor; pad++){
+				blob = "-" + blob;
+			}
+		} else if(paddingStyle.equals("right")) {
+			for(int pad = 0; pad < padRightFor; pad++){
+				blob = blob + "-";
+			}
 		} else {
 
-			String blob = "";
-
-			int j=0;
-			for(; j<addLettersFor; j++){
-				blob=letters[j] + blob;
-			}
-
-
-			for(; j<padLeftFor; j++);
-				blob = blob + "";
 		}
 
-	}
-
-	public String getBlob() {
 		return blob;
 	}
 
-	public class DataWrapper {
-		private String instruction;
 
-		public String getInstruction() {
-			return instruction;
-		}
+	public String main(String textPattern) {
+//        "addLettersFor:9-loops,padLeftFor:6-loops,padRightFor:16-loops,paddingStyle:left";
 
-//		/**
-//		 * Equal of both objects contain the same string instruction
-//		 */
-//		@Override
-//		public boolean equals(Object other){
-//			return this == other;
-//		}
-	}
-
-	public void main(String[] args) {
-
-		DataWrapper dataWrapper = new DataWrapper();
-		dataWrapper.instruction = "addLettersFor:9-loops,padLeftFor:6-loops,padRightFor:16-loops,paddingStyle:left";
-
-        TextBlobGenerator blobGenerator = new TextBlobGenerator(dataWrapper);
-
-		System.out.println(blobGenerator.getBlob());
-		
+        return textBlobGenerator(textPattern);
 	}
 
 
