@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-curl -X POST --data-urlencode 'payload={"channel": "#payments-app", "username":"Payments-iOS-Automation", "text": "Tests Failed. Click here to check report <http link to report goes here/>.", "icon_emoji": ":ghost:"}' https://hooks.slack.com/services/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
