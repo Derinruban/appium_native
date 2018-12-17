@@ -1,10 +1,5 @@
 package com.ca.steps.support;
 
-
-import com.sun.istack.internal.NotNull;
-
-import java.util.Optional;
-
 /**
  * Text blob generator takes an instruction string
  *
@@ -39,51 +34,57 @@ import java.util.Optional;
  */
 public class TextBlobGenerator {
 
-	private String textBlobGenerator(String textPattern) {
+	private static String textBlobGenerator(String textPattern) {
 
 		String[] letters = {"a","b","c","d","e","f"};
 		String[] args = textPattern.split(":");
 		String blob = "";
 
-        int addLettersFor = Integer.parseInt(args[0]);
-		int padLeftFor = Integer.parseInt(args[1]);
-		int padRightFor = Integer.parseInt(args[2]);
-        String paddingStyle = args[3];
+		if (args.length > 2){
+			int addLettersFor = Integer.parseInt(args[0]);
+			int padLeftFor = Integer.parseInt(args[1]);
+			int padRightFor = Integer.parseInt(args[2]);
 
-        int i = 0;
-        int letterNumber = 0;
 
-        while (i < addLettersFor) {
-        	blob = blob + letters[letterNumber];
-			i++;
-			letterNumber++;
-			if (letterNumber >= letters.length){
-				letterNumber = 0;
+			int i = 0;
+			int letterNumber = 0;
+
+			while (i < addLettersFor) {
+				blob = blob + letters[letterNumber];
+				i++;
+				letterNumber++;
+				if (letterNumber >= letters.length){
+					letterNumber = 0;
+				}
 			}
-        }
 
-		if(paddingStyle.equals("left"))
-		{
-			for(int pad = 0; pad < padLeftFor; pad++){
-				blob = "-" + blob;
-			}
-		} else if(paddingStyle.equals("right")) {
-			for(int pad = 0; pad < padRightFor; pad++){
-				blob = blob + "-";
+			if (args.length > 3){
+				String paddingStyle = args[3];
+
+				if(paddingStyle.equals("left"))
+				{
+					for(int pad = 0; pad < padLeftFor; pad++){
+						blob = "-" + blob;
+					}
+				} else if(paddingStyle.equals("right")) {
+					for(int pad = 0; pad < padRightFor; pad++){
+						blob = blob + "-";
+					}
+				}
 			}
 		} else {
-
+			blob = "Invalid String. Must have at least 3 arguments separated by ':' in instruction string to process";
 		}
 
 		return blob;
 	}
 
-
-	public String main(String textPattern) {
-//        "addLettersFor:9-loops,padLeftFor:6-loops,padRightFor:16-loops,paddingStyle:left";
-
-        return textBlobGenerator(textPattern);
+	public static void main(String textPattern) {
+		System.out.println(textBlobGenerator(textPattern));
 	}
 
+	public String blobGen(String textPattern) {
+		return textBlobGenerator(textPattern);
+	}
 
 }
