@@ -11,16 +11,16 @@ package com.ca.steps.support;
  *
  * NOTE: Instruction string format changed, see examples below
  *
- 9:3:4:left generates:
+ '9:3:4:left' generates:
  ---abcdefabc
 
- 7:8:4:right generates:
+ '7:8:4:right' generates:
  abcdefa----
 
- 2:7:8:left generates:
+ '2:7:8:left' generates:
  -------ab
 
- 9:3:4 generates:
+ '9:3:4' generates:
  abcdefabc
 
  6:2 generates:
