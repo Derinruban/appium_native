@@ -9,29 +9,26 @@ package com.ca.steps.support;
  *
  * or no padding if no padding style defined
  *
- * eg. if input instruction string:
- * 		addLettersFor:3-loops,padLeftFor:5-loops,padRightFor:6-loops,paddingStyle:left
- * output should be:
- * 		-----abc
+ * NOTE: Instruction string format changed, see examples below
  *
- * eg. if input instruction string:
- * 		addLettersFor:8-loops,padLeftFor:5-loops,padRightFor:7-loops,paddingStyle:right
- * output should be:
- * 		abcdefab-------
+ 9:3:4:left generates:
+ ---abcdefabc
+
+ 7:8:4:right generates:
+ abcdefa----
+
+ 2:7:8:left generates:
+ -------ab
+
+ 9:3:4 generates:
+ abcdefabc
+
+ 6:2 generates:
+ Invalid String. Must have at least 3 arguments sepearted by ':' in instruction string to process
  *
- * eg. if input instruction string:
- * 		addLettersFor:8-loops,padLeftFor:5-loops,padRightFor:7-loops
- * output should be:
- * 		abcdefab
- *
- * 1) fix the compile issues and run the main method
- *
- * 2) correct any mistakes in logic
- *
- * 3) Make the code cleaner (refactor and simplify classes)
- *
- * 4) test that it works as intended
+ * run the main method with string arg from command line, or run 'mvn clean test' from project root which will use cucumber dataTable
  */
+
 public class TextBlobGenerator {
 
 	private static String textBlobGenerator(String textPattern) {
