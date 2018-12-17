@@ -76,8 +76,8 @@ public class TextBlobGenerator {
 		return blob;
 	}
 
-	public static void main(String textPattern) {
-		System.out.println(textBlobGenerator(textPattern));
+	public static void main(String[] args) {
+		System.out.println(textBlobGenerator(args[0]));
 	}
 
 	public String blobGen(String textPattern) {
